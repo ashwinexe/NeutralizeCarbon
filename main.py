@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 # Create a flask app
 app = Flask(
@@ -11,6 +11,14 @@ app = Flask(
 @app.route('/')
 def hello():
   return render_template('index.html')
+
+
+@app.route('/input', methods = ['POST', 'GET'])
+def parse_requests():
+  temperature = request.args.get('temperature')
+  return temperature
+
+
 
 if __name__ == '__main__':
   # Run the Flask app
