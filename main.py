@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify, make_response
 
 # Create a flask app
 app = Flask(
@@ -16,7 +16,9 @@ def hello():
 @app.route('/input', methods = ['POST', 'GET'])
 def parse_requests():
   temperature = request.args.get('temperature')
-  return temperature
+  humidity = request.args.get('humidity')
+  location = request.args.get('location')
+  return "The temperature is {}, humidity is {}, location is {}".format(temperature, humidity, location)
 
 
 
