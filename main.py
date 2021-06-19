@@ -5,7 +5,7 @@ import pandas as pd
 
 
 
-def push_db(temperature, humidity, location, N, P, K, rainfall, ph):
+def push_db(temperature, humidity, location, N, P, K, rainfall, ph, points):
   db["temperature"] = temperature
   db["humidity"] = humidity
   db["location"] = location
@@ -14,6 +14,17 @@ def push_db(temperature, humidity, location, N, P, K, rainfall, ph):
   db['K'] = K
   db['rainfall'] = rainfall
   db['ph'] = ph
+  db['points'] = points
+
+
+
+def carbon_redemption(points):
+  red_list = []
+  tree = points / 100
+  red_list.append(tree)
+  cycle = points / 1.5
+  red_list.append(cycle)
+  return red_list
 
 
 
@@ -69,8 +80,7 @@ def parse_requests():
   rh = request.args.get('rh')
   ah = request.args.get('ah')
   points = int(vh) + int(rh) + int(ah) * 2
-  push_db(temperature, humidity, location, N, P, K, rainfall, ph)
-  print(db['humid'])
+  push_db(temperature, humidity, location, N, P, K, rainfall, ph, points)
   return "The temperature is {}, humidity is {}, location is {}. Your carbon impact points are {}".format(temperature, humidity, location, points)
 
 
@@ -78,7 +88,7 @@ def parse_requests():
 @app.route('/output')
 def init_ml():
   loaded_model = pickle.load(open('Crop Recommendation/crop_model.sav', 'rb'))
-  colm_names = ["N","P","K","temperature","humidity","ph","rainfall"]
+  colm_names = ["N", "P", "K", "temperature", "humidity", "ph", "rainfall"]
   d = {}
   for i in range(len(colm_names)):
       ipt = db[''+colm_names[i]]
@@ -86,7 +96,11 @@ def init_ml():
       
   x = pd.Series(d)
   x = x.values.reshape(1, -1)
-  return "The recommended plant type is: {}".format(decoder[''+str(loaded_model.predict(x)[0])])
+  predict = decoder[''+str(loaded_model.predict(x)[0])]
+  points = db['points']
+  redeem = carbon_redemption(points)
+  print(redeem)
+  return "The recommended plant type is: {}. ".format(predict)
 
 
 
