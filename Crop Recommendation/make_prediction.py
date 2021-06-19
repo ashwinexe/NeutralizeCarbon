@@ -1,8 +1,7 @@
 import pandas as pd 
-import numpy as np
 import pickle 
 
-filename = "crop_model.sav"
+filename = "Crop Recommendation/crop_model.sav"
 
 # Load model
 loaded_model = pickle.load(open(filename, 'rb'))
