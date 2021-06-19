@@ -52,8 +52,8 @@ def init_ml():
   for i in range(len(colm_names)):
       print("Enter the value for " + colm_names[i])
       ipt = db[''+colm_names[i]]
-      d[colm_names[i]] = ipt 
-
+      d[colm_names[i]] = ipt
+      
   x = pd.Series(d)
   x = x.values.reshape(1, -1)
   return "The recommended plant type is: {}".format(loaded_model.predict(x))
