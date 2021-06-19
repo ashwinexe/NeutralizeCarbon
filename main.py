@@ -14,7 +14,6 @@ def push_db(temperature, humidity, location, N, P, K, rainfall, ph):
   db['K'] = K
   db['rainfall'] = rainfall
   db['ph'] = ph
-  db['ah'] = ah
 
 
 
@@ -42,6 +41,7 @@ decoder = {
   '8': 'jute',
   '5': 'coffee'
 }
+points = 0
 
 app = Flask(
   __name__,
@@ -65,12 +65,13 @@ def parse_requests():
   K = request.args.get('K')
   rainfall = request.args.get('rainfall')
   ph = request.args.get('ph')
-  vh = request.args.get('vehicle_hours')
-  rh = request.args.get('refrigerator_hours')
-  ah = request.args.get('ac_hours')
+  vh = request.args.get('vh')
+  rh = request.args.get('rh')
+  ah = request.args.get('ah')
+  points = int(vh) + int(rh) + int(ah) * 2
   push_db(temperature, humidity, location, N, P, K, rainfall, ph)
   print(db['humid'])
-  return "The temperature is {}, humidity is {}, location is {}.".format(temperature, humidity, location)
+  return "The temperature is {}, humidity is {}, location is {}. Your carbon impact points are {}".format(temperature, humidity, location, points)
 
 
 
