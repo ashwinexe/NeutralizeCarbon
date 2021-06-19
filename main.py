@@ -57,7 +57,7 @@ def init_ml():
 
   x = pd.Series(d)
   x = x.values.reshape(1, -1)
-  return "The predicted plant type is: {}".format(loaded_model.predict(x))
+  return "The recommended plant type is: {}".format(loaded_model.predict(x))
 
 
 
