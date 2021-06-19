@@ -16,6 +16,31 @@ def push_db(temperature, humidity, location, N, P, K, rainfall, ph):
 
 
 
+decoder = {
+  'rice': 20,
+  'maize': 11,
+  'chickpea': 3,
+  'kidneybeans': 9,
+  'pigeonpeas': 18,
+  'mothbeans': 13,
+  'mungbean': 14,
+  'blackgram': 2,
+  'lentil': 10,
+  'pomegranate': 19,
+  'banana': 1,
+  'mango': 12,
+  'grapes': 7,
+  'watermelon': 21,
+  'muskmelon': 15,
+  'apple': 0,
+  'orange': 16,
+  'papaya': 17,
+  'coconut': 4,
+  'cotton': 6,
+  'jute': 8,
+  'coffee': 5
+}
+
 app = Flask(
   __name__,
   template_folder='templates',
