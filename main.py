@@ -2,6 +2,8 @@ from flask import Flask, render_template, request
 from replit import db
 import pickle
 import pandas as pd
+import requests
+import os
 
 
 
@@ -25,6 +27,34 @@ def carbon_redemption(points):
   cycle = points / 1.5
   red_list.append(cycle)
   return red_list
+
+
+
+def fetch_weather_data(location):
+  api_key = os.environ['weather_api']
+  base_url = "http://api.openweathermap.org/data/2.5/weather?"
+  city_name = input("Enter city name : ")
+  complete_url = base_url + "appid=" + api_key + "&q=" + city_name
+  response = requests.get(complete_url)
+  x = response.json()
+  if x["cod"] != "404":
+    y = x["main"]
+    current_temperature = y["temp"]
+    current_pressure = y["pressure"]
+    current_humidity = y["humidity"]
+    z = x["weather"]
+    weather_description = z[0]["description"]
+    print(" Temperature (in kelvin unit) = " +
+                    str(current_temperature) +
+          "\n atmospheric pressure (in hPa unit) = " +
+                    str(current_pressure) +
+          "\n humidity (in percentage) = " +
+                    str(current_humidity) +
+          "\n description = " +
+                    str(weather_description))
+ 
+  else:
+      print(" City Not Found ")
 
 
 
@@ -101,6 +131,8 @@ def init_ml():
   redeem = carbon_redemption(points)
   trees = redeem[0]
   drive = redeem[1]
+  location = db['location']
+  fetch_weather_data(location)
   return "The recommended plant type is: {}. Your carbon impact points are {}. You can balance your carbon balance by planting {} trees or by replacing {} hours of driving by walking/bicycling. ".format(predict, points, trees, drive)
 
 
