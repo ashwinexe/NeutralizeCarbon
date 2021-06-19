@@ -34,7 +34,12 @@ def parse_requests():
   temperature = request.args.get('temperature')
   humidity = request.args.get('humidity')
   location = request.args.get('location')
-  push_db(temperature, humidity, location)
+  N = request.args.get('N')
+  P = request.args.get('P')
+  K = request.args.get('K')
+  rainfall = request.args.get('rainfall')
+  ph = request.args.get('ph')
+  push_db(temperature, humidity, location, N, P, K, rainfall, ph)
   print(db['humid'])
   return "The temperature is {}, humidity is {}, location is {}.".format(temperature, humidity, location)
 
@@ -47,7 +52,7 @@ def init_ml():
   d = {}
   for i in range(len(colm_names)):
       print("Enter the value for " + colm_names[i])
-      ipt = db[''+colm_names]
+      ipt = db[''+colm_names[i]]
       d[colm_names[i]] = ipt 
 
   x = pd.Series(d)
