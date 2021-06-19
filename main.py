@@ -5,10 +5,14 @@ import pickle
 import pandas as pd
 
 
-def push_db(temperature, humidity, location):
+def push_db(temperature, humidity, location, N, P, K, rainfall):
   db["temp"] = temperature
   db["humid"] = humidity
   db["loc"] = location
+  db['N'] = N
+  db['P'] = P
+  db['K'] = K
+  db['rain'] = rainfall
 
 
 
