@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from replit import db
 import sklearn
 import pickle
+import pandas as pd
 
 
 def push_db(temperature, humidity, location):
@@ -36,8 +37,17 @@ def parse_requests():
 
 @app.route('/output')
 def init_ml():
-  # some code here
-  return "model output here"
+  loaded_model = pickle.load(open('Crop Recommendation/crop_model.sav', 'rb'))
+  colm_names = ["N","P","K","temperature","humidity","ph","rainfall"]
+  d = {}
+  for i in range(len(colm_names)):
+      print("Enter the value for " + colm_names[i])
+      ipt = float(input())
+      d[colm_names[i]] = ipt 
+
+  x = pd.Series(d)
+  x = x.values.reshape(1, -1)
+  return "The predicted plant type is: {}".format(loaded_model.predict(x))
 
 
 
