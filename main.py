@@ -5,14 +5,15 @@ import pickle
 import pandas as pd
 
 
-def push_db(temperature, humidity, location, N, P, K, rainfall):
-  db["temp"] = temperature
-  db["humid"] = humidity
-  db["loc"] = location
+def push_db(temperature, humidity, location, N, P, K, rainfall, ph):
+  db["temperature"] = temperature
+  db["humidity"] = humidity
+  db["location"] = location
   db['N'] = N
   db['P'] = P
   db['K'] = K
-  db['rain'] = rainfall
+  db['rainfall'] = rainfall
+  db['ph'] = ph
 
 
 
@@ -46,7 +47,7 @@ def init_ml():
   d = {}
   for i in range(len(colm_names)):
       print("Enter the value for " + colm_names[i])
-      ipt = float(input())
+      ipt = db[''+colm_names]
       d[colm_names[i]] = ipt 
 
   x = pd.Series(d)
