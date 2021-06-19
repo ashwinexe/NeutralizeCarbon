@@ -99,8 +99,9 @@ def init_ml():
   predict = decoder[''+str(loaded_model.predict(x)[0])]
   points = db['points']
   redeem = carbon_redemption(points)
-  print(redeem)
-  return "The recommended plant type is: {}. ".format(predict)
+  trees = redeem[0]
+  drive = redeem[1]
+  return "The recommended plant type is: {}. Your carbon impact points are {}. You can balance your carbon balance by planting {} trees or by replacing {} hours of driving by walking/bicycling. ".format(predict, points, trees, drive)
 
 
 
