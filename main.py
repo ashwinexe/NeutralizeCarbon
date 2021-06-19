@@ -4,6 +4,7 @@ import pickle
 import pandas as pd
 
 
+
 def push_db(temperature, humidity, location, N, P, K, rainfall, ph):
   db["temperature"] = temperature
   db["humidity"] = humidity
@@ -13,6 +14,7 @@ def push_db(temperature, humidity, location, N, P, K, rainfall, ph):
   db['K'] = K
   db['rainfall'] = rainfall
   db['ph'] = ph
+  db['ah'] = ah
 
 
 
@@ -63,6 +65,9 @@ def parse_requests():
   K = request.args.get('K')
   rainfall = request.args.get('rainfall')
   ph = request.args.get('ph')
+  vh = request.args.get('vehicle_hours')
+  rh = request.args.get('refrigerator_hours')
+  ah = request.args.get('ac_hours')
   push_db(temperature, humidity, location, N, P, K, rainfall, ph)
   print(db['humid'])
   return "The temperature is {}, humidity is {}, location is {}.".format(temperature, humidity, location)
