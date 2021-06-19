@@ -121,6 +121,7 @@ def init_ml():
   drive = redeem[1]
   location = db['location']
   temp = fetch_weather_data(location)
+  # temp = d['temperature']
   return "The recommended plant type is: {}. Your carbon impact points are {}. You can balance your carbon balance by planting {} trees or by replacing {} hours of driving by walking/bicycling. Current temperature is {} deg C.".format(predict, points, trees, drive, temp)
 
 
