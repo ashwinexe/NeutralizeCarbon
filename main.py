@@ -1,13 +1,20 @@
-from flask import Flask, render_template, request, jsonify, make_response
+from flask import Flask, render_template, request
+from replit import db
 
-# Create a flask app
+
+def push_db(temperature, humidity, location):
+  db["temp"] = temperature
+  db["humid"] = humidity
+  db["loc"] = location
+
+
+
 app = Flask(
   __name__,
   template_folder='templates',
   static_folder='static'
 )
 
-# Index page
 @app.route('/')
 def hello():
   return render_template('index.html')
@@ -18,7 +25,9 @@ def parse_requests():
   temperature = request.args.get('temperature')
   humidity = request.args.get('humidity')
   location = request.args.get('location')
-  return "The temperature is {}, humidity is {}, location is {}".format(temperature, humidity, location)
+  push_db(temperature, humidity, location)
+  print(db['humid'])
+  return "The temperature is {}, humidity is {}, location is {}.".format(temperature, humidity, location)
 
 
 
