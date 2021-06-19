@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from replit import db
-
+import sklearn
+import pickle
 
 
 def push_db(temperature, humidity, location):
