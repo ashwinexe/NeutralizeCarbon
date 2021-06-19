@@ -17,28 +17,28 @@ def push_db(temperature, humidity, location, N, P, K, rainfall, ph):
 
 
 decoder = {
-  20: 'rice',
-  11: 'maize',
-  3: 'chickpea',
-  9: 'kidneybeans',
-  18: 'pigeonpeas',
-  13: 'mothbeans',
-  14: 'mungbean',
-  2: 'blackgram',
-  10: 'lentil',
-  19: 'pomegrenate',
-  1: 'banana',
-  12: 'mango',
-  7: 'grapes',
-  21: 'watermelon',
-  15: 'muskmelon',
-  0: 'apple',
-  16: 'orange',
-  17: 'papaya',
-  4: 'coconut',
-  6: 'cotton',
-  8: 'jute',
-  5: 'coffee'
+  '20': 'rice',
+  '11': 'maize',
+  '3': 'chickpea',
+  '9': 'kidneybeans',
+  '18': 'pigeonpeas',
+  '13': 'mothbeans',
+  '14': 'mungbean',
+  '2': 'blackgram',
+  '10': 'lentil',
+  '19': 'pomegrenate',
+  '1': 'banana',
+  '12': 'mango',
+  '7': 'grapes',
+  '21': 'watermelon',
+  '15': 'muskmelon',
+  '0': 'apple',
+  '16': 'orange',
+  '17': 'papaya',
+  '4': 'coconut',
+  '6': 'cotton',
+  '8': 'jute',
+  '5': 'coffee'
 }
 
 app = Flask(
@@ -75,13 +75,12 @@ def init_ml():
   colm_names = ["N","P","K","temperature","humidity","ph","rainfall"]
   d = {}
   for i in range(len(colm_names)):
-      print("Enter the value for " + colm_names[i])
       ipt = db[''+colm_names[i]]
       d[colm_names[i]] = ipt
       
   x = pd.Series(d)
   x = x.values.reshape(1, -1)
-  return "The recommended plant type is: {}".format(loaded_model.predict(x))
+  return "The recommended plant type is: {}".format(decoder[''+str(loaded_model.predict(x)[0])])
 
 
 
