@@ -20,7 +20,7 @@ Install Arduino IDE:
 + Open the location where the zip file for Arduino was downloaded, and unzip this folder to your desired location
 + Start the Arduino IDE from the unzipped folder
 <br>
-Setting up your NodeMCU:
+Setting up your NodeMCU: <br>
 + Go to File >> Preferences and paste this url in additional Board Manager URLs: http://arduino.esp8266.com/stable/package_esp8266com_index.json.
 + Go to Tools >> Boards >> Board Manager.
 + Type "ESP8266" in the search box.
