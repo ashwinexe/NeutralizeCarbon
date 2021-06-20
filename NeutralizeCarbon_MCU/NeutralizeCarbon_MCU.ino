@@ -64,7 +64,7 @@ void loop(){
   
   String getData, Link;
 
-  Link = "/input?temperature="+String(DHT.temperature)+"&humidity="+String(DHT.humidity)+"&location=Jaipur&N=24.6&P=11.3&K=1&rainfall=100&ph=7&vh=3&ah=500&rh=2";
+  Link = "/input?temperature="+String(DHT.temperature)+"&humidity="+String(DHT.humidity)+"&location=Jaipur&N=24.6&P=11.3&K=1&rainfall=100&ph=7";
   Serial.print("requesting URL: ");
   Serial.println(host+Link);
   httpsClient.print(String("GET ") + Link + " HTTP/1.1\r\n" +
