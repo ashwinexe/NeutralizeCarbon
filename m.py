@@ -12,4 +12,4 @@ for coord in list_coords:
         # print(coord)
         folium.Marker(coord, popup = "<b>Shop</b>", tooltip = default_tooltip).add_to(m)
 
-m.save("index.html")
+m.save("templates/index2.html")

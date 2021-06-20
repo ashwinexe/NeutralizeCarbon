@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_6ea63386e6d0461890f24d0785bde4fa {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_6ea63386e6d0461890f24d0785bde4fa" ></div>
+        
+</body>
+<script>    
+    
+            var map_6ea63386e6d0461890f24d0785bde4fa = L.map(
+                "map_6ea63386e6d0461890f24d0785bde4fa",
+                {
+                    center: [26.9124, 75.7873],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f0bfffc1f61344d19867d39eb202cb91 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_6ea63386e6d0461890f24d0785bde4fa);
+        
+    
+            var marker_76bbbc33ec1a4717a372650b40ec1e9f = L.marker(
+                [26.91241, 75.7873],
+                {}
+            ).addTo(map_6ea63386e6d0461890f24d0785bde4fa);
+        
+    
+        var popup_2222fede605946419bc405ba73a67464 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f9ca23ba43134ea59e377dd20610c432 = $(`<div id="html_f9ca23ba43134ea59e377dd20610c432" style="width: 100.0%; height: 100.0%;"><b>Shop</b></div>`)[0];
+            popup_2222fede605946419bc405ba73a67464.setContent(html_f9ca23ba43134ea59e377dd20610c432);
+        
+
+        marker_76bbbc33ec1a4717a372650b40ec1e9f.bindPopup(popup_2222fede605946419bc405ba73a67464)
+        ;
+
+        
+    
+    
+            marker_76bbbc33ec1a4717a372650b40ec1e9f.bindTooltip(
+                `<div>
+                     Redeem EarthCoin here
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ead7abe8d8be4580b4044183a14a1c82 = L.marker(
+                [26.9124, 75.7873],
+                {}
+            ).addTo(map_6ea63386e6d0461890f24d0785bde4fa);
+        
+    
+        var popup_5f986159a8c14244809f64a52eb6ce83 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_7229e744325b4e44bc3b91279ec32739 = $(`<div id="html_7229e744325b4e44bc3b91279ec32739" style="width: 100.0%; height: 100.0%;"><b>Shop</b></div>`)[0];
+            popup_5f986159a8c14244809f64a52eb6ce83.setContent(html_7229e744325b4e44bc3b91279ec32739);
+        
+
+        marker_ead7abe8d8be4580b4044183a14a1c82.bindPopup(popup_5f986159a8c14244809f64a52eb6ce83)
+        ;
+
+        
+    
+    
+            marker_ead7abe8d8be4580b4044183a14a1c82.bindTooltip(
+                `<div>
+                     Redeem EarthCoin here
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_51150649999b441c90e1b9cd9176cab7 = L.marker(
+                [26.91243, 75.7873],
+                {}
+            ).addTo(map_6ea63386e6d0461890f24d0785bde4fa);
+        
+    
+        var popup_fbbfb9aba5c742ef869b07be477cde5b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_6ba368037a314b2eb90928ab8b1b0864 = $(`<div id="html_6ba368037a314b2eb90928ab8b1b0864" style="width: 100.0%; height: 100.0%;"><b>Shop</b></div>`)[0];
+            popup_fbbfb9aba5c742ef869b07be477cde5b.setContent(html_6ba368037a314b2eb90928ab8b1b0864);
+        
+
+        marker_51150649999b441c90e1b9cd9176cab7.bindPopup(popup_fbbfb9aba5c742ef869b07be477cde5b)
+        ;
+
+        
+    
+    
+            marker_51150649999b441c90e1b9cd9176cab7.bindTooltip(
+                `<div>
+                     Redeem EarthCoin here
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
