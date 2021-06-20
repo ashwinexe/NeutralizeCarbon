@@ -94,12 +94,19 @@ def parse_requests():
   K = request.args.get('K')
   rainfall = request.args.get('rainfall')
   ph = request.args.get('ph')
+  push_db(temperature, humidity, location, N, P, K, rainfall, ph)
+  return "The temperature is {}, humidity is {}, location is {}.".format(temperature, humidity, location)
+
+
+
+@app.route('/input_web', methods = ['POST', 'GET'])
+def parse_requests_web():
   vh = request.args.get('vh')
   rh = request.args.get('rh')
   ah = request.args.get('ah')
   points = int(vh) + int(rh) + int(ah) * 2
-  push_db(temperature, humidity, location, N, P, K, rainfall, ph, points)
-  return "The temperature is {}, humidity is {}, location is {}. Your carbon impact points are {}".format(temperature, humidity, location, points)
+  push_db(points)
+  return "{}".format(points)
 
 
 
