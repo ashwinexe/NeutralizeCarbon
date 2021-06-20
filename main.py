@@ -7,7 +7,7 @@ import os
 
 
 
-def push_db(temperature, humidity, location, N, P, K, rainfall, ph, points):
+def push_db(temperature, humidity, location, N, P, K, rainfall, ph):
   db["temperature"] = temperature
   db["humidity"] = humidity
   db["location"] = location
@@ -16,6 +16,10 @@ def push_db(temperature, humidity, location, N, P, K, rainfall, ph, points):
   db['K'] = K
   db['rainfall'] = rainfall
   db['ph'] = ph
+
+
+
+def push_db_web(points):
   db['points'] = points
 
 
@@ -105,7 +109,7 @@ def parse_requests_web():
   rh = request.args.get('rh')
   ah = request.args.get('ah')
   points = int(vh) + int(rh) + int(ah) * 2
-  push_db(points)
+  push_db_web(points)
   return "{}".format(points)
 
 
